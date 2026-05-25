@@ -328,6 +328,16 @@ export default function BookingSystem({
                         )}
 
                         <div>
+                          {pkg.image && (
+                            <div className="relative w-full h-32 rounded-xl overflow-hidden mb-3 border border-brand-teal-900/60 shadow">
+                              <img 
+                                src={pkg.image} 
+                                alt={pkg.title} 
+                                referrerPolicy="no-referrer"
+                                className="w-full h-full object-cover transition duration-500 hover:scale-[1.03]"
+                              />
+                            </div>
+                          )}
                           <p className="font-mono text-[10px] text-brand-teal-400 font-bold uppercase tracking-wider mb-1">
                             {pkg.duration}
                           </p>

@@ -31,6 +31,7 @@ export interface ServicePackage {
   description: string;
   includes: string[];
   isRecommended?: boolean;
+  image?: string;
 }
 
 export interface Booking {

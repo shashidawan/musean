@@ -4,10 +4,21 @@ import { Sparkles, CheckCircle, Flame, ShieldAlert, ArrowRight, Zap, RefreshCw }
 import { KRONE_PRODUCTS } from '../data';
 import { playChime, startDryerHum, stopDryerHum, playSnip } from '../utils/audio';
 
+// Authentic user-provided transformation photos
+// @ts-ignore
+import blondeTreatmentImg from '../assets/images/blonde_treatment_1779722155374.png';
+// @ts-ignore
+import blondeResultImg from '../assets/images/blonde_result_1779722175637.png';
+// @ts-ignore
+import caramelBalayageImg from '../assets/images/caramel_balayage_1779722197229.png';
+// @ts-ignore
+import balayageApplicationImg from '../assets/images/balayage_application_1779722223697.png';
+
 export default function ProbotoExperience() {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [beforeAfterSlider, setBeforeAfterSlider] = useState<number>(50); // percentage 0 to 100 for interactive slider mask
   const [isDryerSimulationRunning, setIsDryerSimulationRunning] = useState<boolean>(false);
+  const [activeSliderCase, setActiveSliderCase] = useState<'blonde' | 'caramel'>('blonde');
 
   // Four Treatment stages corresponding to the 4 Muskan products
   const treatmentStages = [
@@ -194,19 +205,43 @@ export default function ProbotoExperience() {
             </p>
           </div>
 
+          {/* CASE study selector buttons */}
+          <div className="flex gap-2 p-1 bg-brand-teal-900/40 border border-brand-teal-800/40 rounded-xl">
+            <button
+              onClick={() => { setActiveSliderCase('blonde'); playSnip(); }}
+              className={`flex-1 py-1.5 px-2 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-all ${
+                activeSliderCase === 'blonde'
+                  ? 'bg-gold-500 text-brand-teal-950 font-black shadow-sm scale-98'
+                  : 'text-[10px] text-brand-teal-300 hover:text-white'
+              }`}
+            >
+              Blonde Balayage
+            </button>
+            <button
+              onClick={() => { setActiveSliderCase('caramel'); playSnip(); }}
+              className={`flex-1 py-1.5 px-2 rounded-lg text-center text-[10px] font-bold uppercase tracking-wider transition-all ${
+                activeSliderCase === 'caramel'
+                  ? 'bg-gold-500 text-brand-teal-950 font-black shadow-sm scale-98'
+                  : 'text-[10px] text-brand-teal-300 hover:text-white'
+              }`}
+            >
+              Caramel Balayage
+            </button>
+          </div>
+
           {/* SLIDER CONTAINER */}
           <div className="relative h-60 w-full rounded-2xl overflow-hidden border border-brand-teal-900 select-none bg-brand-teal-950">
             
             {/* After (Healthy, Silky, Ultra-glass finish strands) */}
             <div className="absolute inset-0">
               <img 
-                src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=400&h=400" 
+                src={activeSliderCase === 'blonde' ? blondeResultImg : caramelBalayageImg} 
                 alt="High shine glassy hair filament result" 
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover grayscale brightness-110 contrast-125"
+                className="w-full h-full object-cover brightness-110 contrast-110"
               />
-              <div className="absolute bottom-3 right-3 bg-brand-teal-900/90 border border-emerald-500 text-emerald-400 font-mono text-[9px] px-2.5 py-0.5 rounded uppercase font-bold z-10">
-                After Muskan Nourish (Glass Polish)
+              <div className="absolute bottom-3 right-3 bg-brand-teal-900/95 border border-emerald-500 text-emerald-400 font-mono text-[9px] px-2.5 py-0.5 rounded uppercase font-bold z-10">
+                {activeSliderCase === 'blonde' ? 'After Muskan Blowout' : 'After Caramel Balayage'}
               </div>
             </div>
 
@@ -217,14 +252,14 @@ export default function ProbotoExperience() {
             >
               <div className="absolute inset-0 h-60 w-[420px]">
                 <img 
-                  src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=400&h=400" 
+                  src={activeSliderCase === 'blonde' ? blondeTreatmentImg : balayageApplicationImg} 
                   alt="Damaged dry unkempt hair filament layer" 
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover grayscale brightness-75 contrast-75 saturate-150 blur-[2px]"
+                  className="w-full h-full object-cover brightness-95 contrast-95"
                 />
               </div>
-              <div className="absolute bottom-3 left-3 bg-red-950/90 border border-red-700 text-red-300 font-mono text-[9px] px-2.5 py-0.5 rounded uppercase font-bold whitespace-nowrap z-10">
-                Before (Damaged Cuticles)
+              <div className="absolute bottom-3 left-3 bg-red-950/95 border border-red-700 text-red-300 font-mono text-[9px] px-2.5 py-0.5 rounded uppercase font-bold whitespace-nowrap z-10">
+                {activeSliderCase === 'blonde' ? 'During Foil & Color' : 'During Clay Balayage'}
               </div>
             </div>
 
@@ -255,7 +290,7 @@ export default function ProbotoExperience() {
             />
             <div className="flex justify-between text-[10px] font-mono text-brand-teal-400">
               <span>BEFORE: 100%</span>
-              <span>SLIDE FOCUS</span>
+              <span>SLIDE SECRETS</span>
               <span>AFTER: 100%</span>
             </div>
           </div>

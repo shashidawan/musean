@@ -1,5 +1,15 @@
 import { Product, Stylist, ServicePackage } from './types';
 
+// Authentic user-provided transformation photos
+// @ts-ignore
+import blondeTreatmentImg from './assets/images/blonde_treatment_1779722155374.png';
+// @ts-ignore
+import blondeResultImg from './assets/images/blonde_result_1779722175637.png';
+// @ts-ignore
+import caramelBalayageImg from './assets/images/caramel_balayage_1779722197229.png';
+// @ts-ignore
+import balayageApplicationImg from './assets/images/balayage_application_1779722223697.png';
+
 export const KRONE_PRODUCTS: Product[] = [
   {
     id: 'prod-grow',
@@ -117,7 +127,8 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       'Extended relaxing herbal hair massage with deep scalp activation',
       'Warm custom-brewed complimentary herbal tea with organic honeys'
     ],
-    isRecommended: true
+    isRecommended: true,
+    image: blondeResultImg
   },
   {
     id: 'pkg-beauty-trio',
@@ -130,7 +141,8 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       'Long-lasting tinting with custom matching pigmentation',
       'Calming post-thread cold aloe-vera jade roller massage',
       'Complimentary upper-lip or forehead threading touch'
-    ]
+    ],
+    image: blondeTreatmentImg
   },
   {
     id: 'pkg-hair-makeover',
@@ -143,6 +155,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       'Deep-acting Moroccan argan oil hydration protein pack',
       'Custom precise hair redesign cut tailored to face shape',
       'Sleek moisture-locked hot iron seal & voluminous blowout finish'
-    ]
+    ],
+    image: caramelBalayageImg
   }
 ];
