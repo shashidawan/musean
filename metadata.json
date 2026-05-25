@@ -1,0 +1,12 @@
+{
+  "name": "Muskan Hair and Beauty Salon",
+  "description": "An interactive 3D virtual salon showroom and reservation platform for Muskan Hair & Beauty Salon at St Marys, featuring customizable styling stations, beauty product curation, and online booking scheduler.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

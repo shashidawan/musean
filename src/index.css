@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-teal-50: #FAF9F6;
+  --color-brand-teal-100: #F5F5F0;
+  --color-brand-teal-200: #E0D8CC;
+  --color-brand-teal-300: #CAC2B5;
+  --color-brand-teal-400: #A19A90;
+  --color-brand-teal-500: #555555;
+  --color-brand-teal-600: #333333;
+  --color-brand-teal-700: #222222;
+  --color-brand-teal-800: #1a1a1a;
+  --color-brand-teal-900: #121212;
+  --color-brand-teal-950: #080808;
+  
+  --color-gold-50: #FFFDF9;
+  --color-gold-100: #FAF3E3;
+  --color-gold-200: #EEDDBC;
+  --color-gold-300: #E2CA93;
+  --color-gold-400: #D6B575;
+  --color-gold-500: #C5A059;
+  --color-gold-600: #B28F4D;
+  --color-gold-700: #9C7B3F;
+  --color-gold-800: #7E6330;
+  --color-gold-900: #5C4822;
+}
+
+@layer utilities {
+  /* Dynamic 3D lighting wrapper & perspective utilities */
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  /* High-end custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-brand-teal-800);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold-500);
+  }
+}
+
